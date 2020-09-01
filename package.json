@@ -11,7 +11,11 @@
     "dev:ssr": "ng run project-management-app:serve-ssr",
     "serve:ssr": "node dist/project-management-app/server/main.js",
     "build:ssr": "ng build --prod && ng run project-management-app:server:production",
-    "prerender": "ng run project-management-app:prerender"
+    "build:all": "npm run build:ssr && npm run serve:ssr",
+    "prerender": "ng run project-management-app:prerender",
+    "pm2:start": "pm2 start dist/project-management-app/server/main.js --name project-management-app",
+    "pm2:reload": "pm2 reload project-management-app",
+    "pm2:delete": "pm2 delete project-management-app"
   },
   "private": true,
   "dependencies": {
